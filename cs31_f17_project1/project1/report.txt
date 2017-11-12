@@ -1,0 +1,18 @@
+Vincent Lau
+CS 31, Lecture 1
+Prof. Smallberg
+Project 1 Report
+
+5) Using the program as given, without changing it in any way, run it with input integers that cause it to produce incorrect, unusual, or nonsensical output. (Notice we're saying to try input integers, not input like 124765.23 or NPD.)
+
+When prompted to input the number of people surveyed, I typed in 0 to see what kind of result the program would return. I then entered 20 for the approve prompt and 30 for the disapprove prompt, and the program outputted a message saying “inf% say they approve” and “inf% say they disapprove”. This was likely caused by an attempt to perform division by 0. However, there were no overflow errors, compile errors, or any error messages that appeared.
+
+
+6) Starting from the program as given, introduce into the source code at least one error that someone might make that, while not preventing a successful build, causes the program when it runs to produce incorrect results from reasonable input.
+
+In line 21, I changed the original double 100.0 to the double 10000.0 (adding two extra zeros to the left of the decimal point). This could be a potential error made by a programmer with a simple finger slip. While the code is compilable and syntactically correct, it does not produce the desired results. If I indicate there are 100 people surveyed, 70 of which approve and 30 of which disapprove, the output states “70.0% say they approve” and “3000.0% say they disapprove”. Clearly the two values do not add up to 100%, and the actual approval rate (70%) should be higher than the actual disapproval rate (30%).
+
+
+7) Again starting from the program as given, introduce at least two distinct types of mistakes that someone might make, each of which would cause the program to fail to compile correctly.
+
+The first compile error I introduced was in line 14, where I left out a semicolon at the end of the line. When I attempt to run the program in Xcode, the program fails to compile and there is an error message that says “Expected ‘;’ after expression”. The second compile error I created was in line 21. I misspelled the variable “numDisapprove”, leaving out the last letter “e”, changing the variable to spell “numDisapprov”. The program fails to compile and a message appears: “Use of undeclared identifier ‘numDisapprov’; did you mean ‘numDisapprove’?. The misspelling produced an error because I did not declare any variable named ‘numDisapprov’ prior to that line.
